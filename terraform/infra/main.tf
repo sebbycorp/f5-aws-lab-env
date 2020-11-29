@@ -1,8 +1,8 @@
 
 module "network" {
-  source = "./net"
+  source = "./network"
 }
 module "security" {
-  source = "./sec"
+  source = "./security"
   vpc_id = "module.network.vpc"
 }
