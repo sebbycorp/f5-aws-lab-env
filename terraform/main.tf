@@ -21,18 +21,12 @@ provider "aws" {
   region = var.aws_region
 }
 
-module network {
-  source = "./modules/network"
-}
-
-module security {
-  source = "./modules/security"
-
+module "core_infra" {
+  source = "./infra"
 }
 
 module bigip {
   source = "./modules/bigip"
-
 }
 
 module app {
