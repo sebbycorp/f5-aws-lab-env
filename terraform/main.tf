@@ -24,19 +24,14 @@ provider "aws" {
 module "core_infra" {
   source = "./infra"
 }
+module "app" {
+  source            = "./app"
+  region            = var.region
+  aws_keypair       = var.aws_keypair
+  ntw-mgmt          = module.core_infra.ntw-mgmt
+  ntw-public-a      = module.core_infra.ntw-public-a
+  ntw-private-a     = module.core_infra.ntw-private-a
+  grafanasecgroup   = module.core_infra.grafanasecgroup
+  juiceshopsecgroup = module.core_infra.juiceshopsecgroup
 
-module bigip {
-  source = "./modules/bigip"
-}
-
-module app {
-  source = "./modules/app"
-}
-
-module automation {
-  source = "./modules/automation"
-}
-
-module monitor {
-  source = "./modules/automation"
 }
