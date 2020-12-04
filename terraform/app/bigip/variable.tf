@@ -1,8 +1,13 @@
+variable "vpc_id" {}
 
 variable "availability-zones" {
   description = "aws region (default is us-east-1)"
   default     = "us-east-1a"
 }
+variable "aws_keypair" {}
+variable "ntw-mgmt" {}
+variable "ntw-public-a" {}
+variable "ntw-private-a" {}
 
 variable "f5-stack-name" {
   description = "f5 stack name"
@@ -25,10 +30,7 @@ variable "f5-subnet1Az1AddressPri" {
   description = "subnet1Az1AddressPri"
   default     = "DYNAMIC"
 }
-variable "aws_keypair" {
-  description = "The name of an existing key pair. In AWS Console: NETWORK & SECURITY -> Key Pairs"
-  default     = "maniak.io.key"
-}
+
 
 variable "restrictedSrcAddress" {
   type        = list

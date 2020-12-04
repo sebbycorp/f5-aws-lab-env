@@ -4,4 +4,3 @@ variable "ntw-public-a" {}
 variable "ntw-private-a" {}
 variable "grafanasecgroup" {}
 variable "juiceshopsecgroup" {}
-variable "vpc_id" {}

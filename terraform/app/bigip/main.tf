@@ -5,18 +5,19 @@ resource "aws_cloudformation_stack" "f5-payg-bigip-stack" {
   capabilities = ["CAPABILITY_IAM"]
 
   parameters = {
-    Vpc = mod
+    Vpc = var.vpc_id
+
 
     imageName    = var.imageName
     instanceType = "m4.large"
     sshKey       = var.aws_keypair
 
-    managementSubnetAz1        = aws_subnet.f5-management-a.id
+    managementSubnetAz1        = var.ntw-mgmt
     managementSubnetAz1Address = var.f5-subnet1Az1Address
     provisionPublicIP          = "Yes"
     restrictedSrcAddress       = "0.0.0.0/0"
     restrictedSrcAddressApp    = "0.0.0.0/0"
-    subnet1Az1                 = aws_subnet.public-a.id
+    subnet1Az1                 = var.ntw-public-a
     subnet1Az1Address          = var.f5-subnet1Az1Address
 
     bigIpModules  = "ltm:nominal"
